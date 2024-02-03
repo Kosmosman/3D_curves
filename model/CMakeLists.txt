@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.19)
 
-add_library(curves INTERFACE
+add_library(curves SHARED
         Base.h
         Circle.h)
 

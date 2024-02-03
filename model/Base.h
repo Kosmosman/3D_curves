@@ -2,19 +2,22 @@
 #define CURVES_BASE_H
 
 #include <vector>
+#include <iostream>
 
 namespace crv {
 
     struct Point {
-        int x, y, z;
+        double x, y, z;
+        friend std::ostream& operator<<(std::ostream& stream, const Point &p) {
+            stream << p.x << ' ' << p.y << ' ' << p.z;
+            return stream;
+        };
     };
-
-    using Points = std::vector<Point>;
 
     class BaseCurve {
     public:
         virtual Point GetPoint(double) = 0;
-        virtual std::vector<Point> GetFirstDerivative(double) = 0;
+        virtual double GetFirstDerivative(double) = 0;
         virtual ~BaseCurve()= default;
     };
 
