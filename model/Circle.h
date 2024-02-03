@@ -9,7 +9,7 @@ namespace crv {
     class Circle : public BaseCurve {
     public:
         Circle()= default;
-        explicit Circle(double radius) : radius_(radius) {}
+        explicit Circle(double radius) : radius_{radius} {}
 
         void SetRadius(double new_radius) { radius_ = new_radius; }
         Point GetPoint(double angle) override { return {radius_ * cos(angle), radius_ * sin(angle), 0}; }
