@@ -8,7 +8,8 @@ namespace crv {
 
     struct Point {
         double x, y, z;
-        friend std::ostream& operator<<(std::ostream& stream, const Point &p) {
+
+        friend std::ostream &operator<<(std::ostream &stream, const Point &p) {
             stream << p.x << ' ' << p.y << ' ' << p.z;
             return stream;
         };
@@ -17,8 +18,10 @@ namespace crv {
     class BaseCurve {
     public:
         virtual Point GetPoint(double) = 0;
+
         virtual double GetFirstDerivative(double) = 0;
-        virtual ~BaseCurve()= default;
+
+        virtual ~BaseCurve() = default;
     };
 
 } // crv
