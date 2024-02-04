@@ -10,9 +10,12 @@ namespace crv {
     public:
         Ellipse() = default;
 
-        explicit Ellipse(double x_radius, double y_radius) : x_radius_{x_radius}, y_radius_{y_radius} {}
+        explicit Ellipse(double x_radius, double y_radius) : x_radius_{x_radius}, y_radius_{y_radius} {
+            if (x_radius < 0 || y_radius < 0) throw std::invalid_argument("radius can't be negative");
+        }
 
         void SetRadius(double new_x_radius, double new_y_radius) {
+            if (new_x_radius < 0 || new_y_radius < 0) throw std::invalid_argument("radius can't be negative");
             x_radius_ = new_x_radius;
             y_radius_ = new_y_radius;
         }
