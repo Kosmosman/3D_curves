@@ -15,9 +15,14 @@ namespace crv {
             x_radius_ = new_x_radius;
             y_radius_ = new_y_radius;
         }
-        Point GetPoint(double angle) override { return {x_radius_ * cos(angle), y_radius_ * sin(angle), 0}; }
+        Point GetPoint(double angle) override {
+            double t = atan(x_radius_ / y_radius_ * tan(angle));
+            return {x_radius_ * cos(t), y_radius_ * sin(t), 0};
+        }
         double GetFirstDerivative(double angle) override {
-            return tan(M_PI_2);
+            auto p = GetPoint(angle);
+            double der_angle = M_PI - atan(p.y / (pow(x_radius_, 2) / p.x - p.x));
+            return tan(der_angle);
         }
 
 
