@@ -1,6 +1,7 @@
 #include <iostream>
 #include <random>
 #include <algorithm>
+#include <omp.h>
 
 #include "Circle.h"
 #include "Ellipse.h"
@@ -69,7 +70,10 @@ void SortCircles(std::vector<crv::Circle *> &circles) {
 // Part 6 - Compute the total sum of radii of all curves in the second container.
 double CirclesRadiusSum(const std::vector<crv::Circle *> &circles) {
     double result{};
+#pragma omp parallel
+#pragma omp for
     for (auto &i: circles) {
+#pragma omp atomic
         result += i->GetRadius();
     }
     return result;
