@@ -1,8 +1,11 @@
 #include <iostream>
+#include <random>
+#include <algorithm>
+
 #include "Circle.h"
 #include "Ellipse.h"
 #include "Helix.h"
-#include <random>
+
 
 // Part 2 - Populate a container (e.g. vector or list) of objects of these types created in random manner with
 // random parameters.

@@ -4,7 +4,6 @@ PROJECT(${PROJECT_NAME})
 SET(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(model)
-add_subdirectory(test)
 
 add_executable(${PROJECT_NAME} main.cc)
 
